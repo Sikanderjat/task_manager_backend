@@ -1,0 +1,44 @@
+/flask_backend_project
+│── /app
+│   ├── /api
+│   │   ├── __init__.py
+│   │   ├── routes.py              # Defines API endpoints
+│   ├── /models
+│   │   ├── __init__.py
+│   │   ├── user.py                # User model (RBAC)
+│   │   ├── task_manager.py        # TaskManager model
+│   │   ├── task_logger.py         # TaskLogger model
+│   ├── /services
+│   │   ├── __init__.py
+│   │   ├── task_service.py        # Task processing logic
+│   │   ├── user_service.py        # User management logic
+│   ├── /repositories
+│   │   ├── __init__.py
+│   │   ├── task_repository.py     # DB queries for tasks
+│   │   ├── user_repository.py     # DB queries for users
+│   ├── /workers
+│   │   ├── __init__.py
+│   │   ├── celery_worker.py       # Celery worker setup
+│   │   ├── daily_task_loader.py   # Celery task logic
+│   ├── /utils
+│   │   ├── __init__.py
+│   │   ├── db.py                  # SQLAlchemy setup
+│   │   ├── redis_cache.py         # Redis caching
+│   │   ├── security.py            # JWT authentication & hashing
+│   │   ├── rate_limiter.py        # API rate limiting
+│   ├── __init__.py
+│   ├── config.py                  # App configuration (ENV, DB)
+│   ├── main.py                     # Flask app entry point
+│
+│── /migrations                     # Alembic migration scripts
+│── /tests
+│   ├── test_tasks.py               # Unit tests for task APIs
+│   ├── test_auth.py                # Unit tests for authentication
+│── /docs                           # API documentation
+│── .env                             # Environment variables
+│── .dockerignore
+│── .gitignore
+│── Dockerfile                       # Docker setup
+│── docker-compose.yml               # Multi-container setup
+│── requirements.txt                  # Dependencies
+│── README.md                        # Project documentation

@@ -16,7 +16,16 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    phone_number = db.Column(db.String(20), nullable=True)
+    profile_image_url = db.Column(db.String(255), nullable=True)
     is_active = db.Column(db.Boolean, default=True)
+    task_preferences = db.Column(db.JSON, default={
+        'notification_enabled': True,
+        'default_view': 'list',
+        'timezone': 'UTC'
+    })
     roles = db.Column(ARRAY(db.String(20)), default=['user'])  # ['admin', 'manager', 'user']
     permissions = db.Column(ARRAY(db.String(50)), default=[])  # ['create_task', 'edit_all_tasks', ...]
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
